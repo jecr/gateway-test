@@ -5,22 +5,22 @@ const router = express.Router();
 
 router.get('/', (req, res) => res.send("Hello World!"));
 
-/* const bodyparser = require('body-parser');
-const path = require('path');
-const User = require('./User');
+const bodyparser = require('body-parser');
+/* const path = require('path'); */
+const User = require('../server_tools/User');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 
-app.use(express.static(path.join(__dirname, 'build')));
+/* app.use(express.static(path.join(__dirname, 'build'))); */
 app.use(bodyparser.json());
 app.use(cookieParser());
 
 const secret = 'thisshouldbedefinedinaconfigurationfile'; // Use dotenv to store this
-*/
+
 const mongoose = require('mongoose');
-/*
-const withAuth = require('./middleware');
-*/
+
+const withAuth = require('../server_tools/middleware');
+
 mongoose.connect(
   'mongodb+srv://honey:bunny@probando.nevhu.gcp.mongodb.net/test',
   { useNewUrlParser: true, useUnifiedTopology: true }
@@ -31,20 +31,20 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function(){
   console.log("Connected to db");
 });
-/*
-app.get('/ping', function (req, res) {
+
+router.get('/ping', function (req, res) {
  return res.send('pong');
 });
-app.get('/api/home', function (req, res) {
+router.get('/api/home', function (req, res) {
   return res.send('Welcome!');
 });
-app.get('/api/secret', withAuth, function (req, res) {
+router.get('/api/secret', withAuth, function (req, res) {
   return res.send('The password is guacamole');
 });
-app.get('/checkToken', withAuth, function(req, res) {
+router.get('/checkToken', withAuth, function(req, res) {
   res.sendStatus(200);
 });
-app.post('/api/register', function (req, res) {
+router.post('/api/register', function (req, res) {
   const { username, password } = req.body;
   const user = new User({ username, password });
   user.save(function(err) {
@@ -56,7 +56,7 @@ app.post('/api/register', function (req, res) {
     }
   });
 });
-app.post('/api/authenticate', function (req, res) {
+router.post('/api/authenticate', function (req, res) {
   const { username, password } = req.body;
   User.findOne({ username }, function(err, user) {
     if (err) {
@@ -95,7 +95,7 @@ app.post('/api/authenticate', function (req, res) {
       });
     }
   });
-}); */
+});
 
 app.use('/.netlify/functions/server', router);
 app.use('/', (req, res) => res.send("Guacamole"));
