@@ -1,3 +1,4 @@
 [build]
-  command = "npm install && npm run lambda-build"
+  command = "npm run build && npm install && npm run lambda-build"
+  publish = "build/"
   functions = "functions"
