@@ -16,12 +16,13 @@ app.use(bodyparser.json());
 app.use(cookieParser());
 
 const secret = 'thisshouldbedefinedinaconfigurationfile'; // Use dotenv to store this
-
+*/
 const mongoose = require('mongoose');
+/*
 const withAuth = require('./middleware');
-
+*/
 mongoose.connect(
-  'mongodb://localhost/test',
+  'mongodb+srv://honey:bunny@probando.nevhu.gcp.mongodb.net/test',
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
@@ -30,7 +31,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function(){
   console.log("Connected to db");
 });
-
+/*
 app.get('/ping', function (req, res) {
  return res.send('pong');
 });
