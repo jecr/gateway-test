@@ -20,6 +20,7 @@
   },
   "main": "server.js",
   "scripts": {
+    "heroku-postbuild": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
