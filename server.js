@@ -16,7 +16,7 @@ const mongoose = require('mongoose');
 const withAuth = require('./middleware');
 
 mongoose.connect(
-  'mongodb://localhost/test',
+  'mongodb+srv://honey:bunny@probando.nevhu.gcp.mongodb.net/test',
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
