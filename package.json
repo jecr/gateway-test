@@ -20,6 +20,7 @@
     "react-scripts": "3.4.1"
   },
   "devDependencies": {
+    "aws-sdk": "^2.725.0",
     "express": "^4.17.1",
     "netlify-lambda": "^2.0.1",
     "nodemon": "^2.0.4",
